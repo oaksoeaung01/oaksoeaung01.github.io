@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Universal selector
+            Elements အားလုံးအပေါ်မှာ သက်ရောက်မှုရှိ
+         */
+         *{
+            color: red;
+            margin: 0;
+            padding: 0;
+         }
+         /* Element Selector
+         tag name dwe ko select lote dr
+         ko select lote dae element dwe akone thet yout hmu shi
+         */
+         h1{
+            color: black;
+         }
+         p{
+            background-color: aqua;
+         }
+         /* id selector
+            id attribute ထဲမှရှိတဲ့ value ကို select လုပ်တာ
+            id attribute ရှိတဲ့ element ကိုပဲ သက်ရောက်မှုရှိမယ်
+            id ကို  select လုပ်ပြီဆိုရင် # နဲ့ select လုပ်ရတယ်
+        */
+        #nose{
+            background-color: pink;
+        }
+        /* 
+            class selector
+            class attribute ထဲမှာရှိတဲ့ value ကို select လုပ်တာ
+            class attribute ရှိတဲ့ value တူတဲ့ element တိုင်းကို သက်ရောက်မှု ရှိမယ်
+            class ကို select လုပ်ပြီဆိုရင် . နဲ့ select လုပ်ရတယ်
+        */
+        .eye-makeup {
+            color: brown;
+            background-color: white;
+        }
+        
+        /* 
+        attribute selector
+         */
+         a[title="Google Website"] {
+            font-size: 32px;
+         }
+         input[type="email"]{
+            background-color: brown;
+         }
+
+         /* 
+         Descendant selector
+         အောက်ပါ ဥပမာအရ
+         div ထဲ မှာ ရှိတဲ့ p element အားလုံးကို အလုပ်လုပ်
+         */
+         div p{
+            background-color: yellow;
+         }
+         /*  
+         child selector
+         အောက်ပါ ဥပမာ အရ
+         div ထဲမှာ ရှိတဲ့ div ရဲ့ child ဖြစ်တဲ့  p elements အားလုံးကို
+         child မဟုတ်တဲ့ span ထဲမှာ ရှိတဲ့ p tag  ကို အလုပ်မလုပ်
+         */
+         div>p {
+            color: black
+         }
+    </style>
+</head>
+<body>
+    <h1>selector</h1>
+    <p>Universal selector</p>
+    <p>Hello CSS</p>
+    <p id="nose">Nose</p>
+    <p class="eye-makeup">Left Eye</p>
+    <p class="eye-makeup">Right Eye</p>
+
+    <a href="" title="Google Website">Google</a>
+    <input type="email" name="" id="">
+    <input type="text" name="" id="">
+
+    <div>
+        <p>This is paragraph 1</p>
+        <p>This is paragraph 2</p>
+        <p>This is paragraph 3</p>
+        <span>
+            <p>This is paragraph 4</p>
+        </span>
+        <p>This is paragraph 5.</p>
+    </div>
+</body>
+</html>

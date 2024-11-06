@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Student Registration Form</h1>
+    <form action="request.php" method="get">
+        <Label for="name">Name</Label>
+        <input type="text" name="stu_name" id="name">
+        <br><br>
+        <label for="email">Email</label>
+        <input type="email" name="stu_email" id="email">
+        <br><br>
+        <label for="password">Password</label>
+        <input type="password" name="stu_password" id="password">
+        <br><br>
+        <label for="phone">Phone</label>
+        <input type="number" name="stu_phone" id="phone">
+        <br><br>
+        <label for="DOB">Date of birth</label>
+        <input type="date" name="stu_dob" id="DOB">
+        <br><br>
+        <label for="passport">Passport</label>
+        <input type="file" accept=".png, .jpg" name="stu_passport" id="passport">
+        <br><br>
+        <label for="year">Years</label>
+        <select name="stu_year" id="year">
+            <option value="">Choose</option>
+            <option value="1">First Year</option>
+            <option value="2">Second Year</option>
+            <option value="3">Final Year</option>
+        </select>
+        <br><br>
+        <label for="gender">Gender</label>
+        
+        <input type="radio" name="gender" id="male" value="male"><label for="male">Male</label>
+        <input type="radio" name="gender" id="female" value="female"><label for="female">Female</label>
+        <br><br>
+        <label for="">Hobby</label>
+        <br><br>
+        <input type="checkbox" name="gaming" id="gaming" value="gaming" ><label for="gaming">Gaming</label>
+        <input type="checkbox" name="football" id="football" value="football"><label for="football">Football</label>
+        <input type="checkbox" name="basketball" id="basketball" value="basketball"><label for="basketball">Basketball</label>
+        <input type="checkbox" name="swimming" id="swimming" value="swimming"><label for="swimming">Swimming</label>
+        <br><br>
+        <label for="address">Address</label>
+        <textarea name="stu_address" id="address" cols="50" rows="15"></textarea>
+        <br><br>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
