@@ -1,0 +1,76 @@
+
+/* ----------------------------------------------------------
+H2をしらべて、ページリンク生成
+---------------------------------------------------------- */
+
+(function($){
+  $(function(){
+    var tar = $(".mod-wp-wysiwyg-pagelist");
+    if(tar.size() == 0) return;
+      var tags = ".mod-wp-wysiwyg h2"
+      var hs = document.querySelectorAll(tags);
+      var current = 0;
+      var count = 0;
+      var tree = [];
+      var currentTree = tree;
+      var prebTree = [null, null, null, null, null, null];
+
+      function setTree(_node, _level) {
+        if (current> _level) {
+          if (prebTree[_level]) {
+            currentTree = prebTree[_level];
+          }
+        } else if (current < _level) {
+          var a = [];
+          currentTree.push(a);
+          currentTree = a;
+        }
+        currentTree.push(_node);
+        if(!$(_node).attr("id")){
+          $(_node).attr("id",'head' + count);
+        }
+        count++;
+        prebTree[_level] = currentTree;
+        current = _level;
+      }
+      for (var i = 0; i < hs.length; i++) {
+          setTree(hs[i], hs[i].tagName.charAt(1) - 1);
+      }
+      tree = tree[0];
+      var nn = 0;
+      function getTag(_tree, _l) {
+        var s = '';
+          s += '<div class="_pl-title">目次</div>'
+          s += '<ul>';
+        for (var i = 0; i < _tree.length; i++) {
+          s += '<li>';
+          if (Array.isArray(_tree[i])) {
+            s += getTag(_tree[i], _l + 1);
+          } else {
+            var id = ""
+            if(_tree[i].getAttribute('id')){
+              id = _tree[i].getAttribute('id');
+            } else{
+              id = 'head' + nn;
+            }
+            nn++
+            s += '<a href="#' + id + '">';
+            if(_tree[i].innerText){
+                s += _tree[i].innerText;
+            } else{
+                s += _tree[i].textContent;
+            }
+            s += '</a>';
+            id = (_tree[i].getAttribute('id')) ? _tree[i].getAttribute('id') : id;
+
+            _tree[i].setAttribute('id', id);
+          }
+          s += '</li>';
+        }
+          s += '</ul>';
+        return s;
+      }
+      tar.html(getTag(tree, 0));
+      return(this);
+  });
+})(jQuery);

@@ -1,0 +1,302 @@
+
+/* ----------------------------------------------------------
+環境調査
+---------------------------------------------------------- */
+
+//UAで判別
+var isMobile = (function(){
+	var ua = window.navigator.userAgent.toLowerCase();
+	if(ua.indexOf('ipad') != -1) return true;
+	if(ua.indexOf('iphone') != -1) return true;
+	if(ua.indexOf('android') != -1) return true;
+})();
+var isTablet = (function(){
+	var ua = window.navigator.userAgent.toLowerCase();
+  if (ua.indexOf('iphone') > 0 || ua.indexOf('ipod') > 0 || ua.indexOf('android') > 0 && ua.indexOf('mobile') > 0) {
+    return false;
+  } else if (ua.indexOf('ipad') > 0 || ua.indexOf('android') > 0) {
+    return true;
+  } else {
+    return false;
+  }
+})();
+var isTouchDevice = (function(){
+	if(window.ontouchstart === null) {return true;}
+	return false;
+})();
+
+
+//htmlクラス設定
+function setHTMLClass(_cs){
+	try{
+		document.querySelector('html').classList.add(_cs);
+	}catch( e ){}
+}
+if(isMobile){
+	setHTMLClass("env-mobile");
+	setHTMLClass( isTablet ? "env-tablet" : "env-sp")
+} else{
+	setHTMLClass("env-desktop");
+}
+setHTMLClass( isTouchDevice ? "env-touch" : "env-not-touch" );
+
+//IE11判定
+(function(){
+	ua = window.navigator.userAgent.toLowerCase();
+	if( ua.indexOf('trident') != -1 ) setHTMLClass("env-ie11");
+})();
+
+
+//レスポンシブ用
+var isWideScreen = function() {
+	var _breakPoint = "(max-width: 768px)";
+	if(window["matchMedia"]){
+		if (window.matchMedia( _breakPoint ).matches) {return false;}
+	}
+	return true;
+};
+
+
+/* ----------------------------------------------------------
+メイン処理
+---------------------------------------------------------- */
+
+//DOMツリーの構築が完了したら実行
+$(function(){
+
+	//Gメニュ
+	initGMenu();
+	initMegaMenu();
+
+	initShare()
+
+	//スマホ
+	initSpMenu();
+	initSpBtn();
+
+	//ページトップボタン作成
+	initPagetop()
+
+	//スムーススクロール初期化
+	initPageLink()
+
+});
+
+
+//画像などの関連データがロードされたら実行
+// $(window).on('load',function(){ console.log("loaded"); });
+
+//その他
+// $(window).on('scroll',function(){ console.log($(window).scrollTop()); });
+// $(window).on('orientationchange resize',function(){ console.log("resize") });
+
+
+/* ----------------------------------------------------------
+functions
+---------------------------------------------------------- */
+
+function initImageSwith() {
+	//A
+	$.imageSwitch({ className:'.js-switch' , width : 768 });
+  //***_pc.*** >> ***_sp.***
+
+	//B
+	// $('a img').hover(function(){
+	// 	$(this).attr('src',$(this).attr('src').replace('_off','_on'));
+	// },function(){
+	// 	$(this).attr('src',$(this).attr('src').replace('_on','_off'));
+	// });
+}
+
+
+/* ----------------------------------------------------------
+initGMenu
+---------------------------------------------------------- */
+
+function initGMenu(){
+	if(isMobile)return;
+	var body = $("body");
+	var isOpen = false;
+	$(window).scroll(function () {
+		if($(window).scrollTop() > 68 ){
+			if(! isOpen){ body.addClass("js-fixed-menu");isOpen = true;}
+		} else{
+			if(isOpen){body.removeClass("js-fixed-menu");isOpen = false;}
+		}
+	});
+}
+
+/* ----------------------------------------------------------
+initMegaMenu
+---------------------------------------------------------- */
+
+function initMegaMenu(){
+  var body = $("body");
+  var menu = $(".js-megamenu");
+  var sets = $(".js-megamenu-set");
+  var trigger = $(".js-megamenu-trigger");
+
+  trigger.each(function(index){
+    var no = index + 1;
+    $(this).hover(function(){
+      openMenu_pre(no)
+    },function(){
+      closeMenu_pre()
+    })
+  })
+  menu.hover(function(){
+    if(tID) clearTimeout(tID);
+    if(tID2) clearTimeout(tID2);
+  },function(){
+    closeMenu()
+  })
+
+  var tID;
+  var tID2;
+  var prev = -1;
+  function openMenu_pre(_n){
+    tID2 = setTimeout(function(){openMenu(_n)},100);
+  }
+  function closeMenu_pre(){
+    tID2 = setTimeout(function(){closeMenu()},100);
+  }
+  function openMenu(_n){
+    if(tID) clearTimeout(tID);
+    if(_n == -1) {
+      closeMenu();
+      return;
+    }
+    if(prev == _n) return;
+    prev = _n;
+    sets.hide();
+    // body.removeClass("js-header-menu-open-1")
+    // body.removeClass("js-header-menu-open-2")
+    // body.removeClass("js-header-menu-open-3")
+    if(_n != -1)sets.eq(_n-1).fadeIn(200);
+    body.addClass("js-header-menu-open")
+    // body.addClass("js-header-menu-open-" + _n)
+  }
+  function closeMenu(){
+    if(tID) clearTimeout(tID);
+    tID = setTimeout(function(){
+      body.removeClass("js-header-menu-open")
+      // body.removeClass("js-header-menu-open-1")
+      // body.removeClass("js-header-menu-open-2")
+      // body.removeClass("js-header-menu-open-3")
+      prev = -1;
+    },200);
+  }
+}
+
+/* ----------------------------------------------------------
+initSpMenu
+---------------------------------------------------------- */
+
+function initSpMenu(){
+	var body = $("body");
+	var modal = $(".js-sp-menu-modal");
+	var trigger = $(".js-sp-menu-trigger");
+	var tar = $(".area-wrapper");
+  var active = "js-sp-menu-active";
+  var pointY;
+	var isOpen = false;
+  trigger.click(function(){
+		if(!isOpen) {
+			body.addClass(active);
+	  	pointY = $(window).scrollTop();
+	  	tar.css({'position': 'fixed','width': '100%','top': -pointY});
+		} else{
+			body.removeClass(active);
+	  	tar.css({'position': 'relative','width': '','top': ''});
+	  	$(window).scrollTop(pointY);
+		}
+		isOpen = !isOpen;
+	})
+
+	//submenus
+	var menuSet = modal.find(".js-sp-menu-toggle");
+	menuSet.each(function (index, dom) {
+		var tar = $(this);
+		var head = tar.find(".js-sp-menu-head");
+		var body = tar.find(".js-sp-menu-body");
+		head.click(function(){
+			head.toggleClass("js-active")
+			body.slideToggle();
+      return false;
+		})
+	});
+}
+
+function initSpBtn() {
+  // $('.mod-btn').bind('touchstart', function() {$(this).addClass('js-hover');})
+	// $('.mod-btn').bind('touchend', function() {$(this).removeClass('js-hover');});
+}
+
+function initPagetop(){
+	// if(isMobile)return;
+	var view = $(".btn-pagetop");
+	var footer = $("footer");
+	view.click(function(){ scroll_(0) });
+	var isOpen = false;
+	$(window).scroll(function () {
+		if($(window).scrollTop() > 100 ){
+			if(! isOpen){view.addClass("js-show");isOpen = true;}
+	 	} else{
+			if(isOpen){view.removeClass("js-show");isOpen = false;}
+	 	}
+		var s = footer.offset().top;
+		if($(window).scrollTop() > s - window.innerHeight ){
+			view.addClass("js-fixed")
+	 	} else{
+			view.removeClass("js-fixed")
+	 	}
+	});
+};
+
+function initPageLink(){
+ $('a[href^="#"]').click(function() {
+		var tar = $(this).attr("href");
+		if(tar == "#") return false;
+		scroll_(Number($(tar).offset().top) - 50)
+		return false;
+ });
+}
+
+function scroll_(n){
+	$('body,html').animate({scrollTop:n}, 400, 'swing');
+}
+
+function initShare(){
+  var url = window.location.href;
+  // var url = "http://www.yahoo.co.jp/";
+  var title = document.title
+
+  $(".js-mod-sns-fb").attr('href','http://www.facebook.com/share.php?u='+ encodeURI(url));
+  $(".js-mod-sns-fb").click(function(event){
+  	window.open($(this).attr('href'), 'facebookwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes');
+  	return false;
+  });
+
+  $(".js-mod-sns-tw").attr('href','http://twitter.com/share?text='+
+  	encodeURI(title.split("#").join("＃")) +
+  	'&url='+encodeURI(url));
+  	// '&hashtags='+encodeURI("エールのトスをつなごう"));
+  $(".js-mod-sns-tw").click(function(event){
+  	window.open($(this).attr('href'), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1');
+  	return false;
+  });
+  $(document).on("click",".js-mod-sns-image-tw",function(event){
+  	window.open($(this).attr('href'), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1');
+  	return false;
+  });
+
+  // $(".js-mod-sns-gl").attr('href','https://plus.google.com/share?url='+encodeURI(url));
+  // $(".js-mod-sns-gl").click(function(event){
+  // 	window.open($(this).attr('href'), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1');
+  // 	return false;
+  // });
+  //
+  $(".js-mod-sns-li").attr('href','http://line.me/R/msg/text/?'+ encodeURI( title + ' ' + url ));
+}
+
+

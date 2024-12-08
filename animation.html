@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes change_animation {
+            /* from {
+                background-color: red;
+                transform: translateX(0)
+            }
+            to {
+                background-color: green;
+                transform: translateX(300px);
+            } */
+             0% {
+                background-color: red;
+                left: 0;
+                top: 0;
+             }
+             25% {
+                background-color: aqua;
+                left: 200px;
+                top: 0;
+                transform: rotate(40deg);
+             }
+             50% {
+                background-color: blueviolet;
+                left: 200px;
+                top: 200px;
+                transform: scale(1.5);
+             }
+             75% {
+                background-color: green;
+                left: 0;
+                top: 200px;
+                transform: skew(30deg,50deg);
+             }
+             100% {
+                background-color: red;
+                left: 0;
+                top: 0;
+             }
+        }
+
+        div {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: palevioletred;
+            /* keyframes က name */
+            animation-name: change_animation;
+            /* animation ကြာချိန် */
+            animation-duration: 5s;
+            /* animation လုပ်မယ့် အရေအတွက်, infinite ဆို animation မရပ်*/
+            animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+<body>
+    <h1>Animation Lesson</h1>
+    <div></div>
+</body>
+</html>

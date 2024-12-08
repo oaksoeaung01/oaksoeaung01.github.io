@@ -1,0 +1,45 @@
+@charset "utf-8";
+/*======================
+
+
+
+cookie.css
+2021/8 cookie対応用css
+
+
+
+======================*/
+.ot-sdk-show-settings {
+  display: block;
+  width: 12%;
+  background: #000;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  padding:10px;
+  z-index:10;
+  color: #fff;
+  font-size:12px;
+}
+
+.ot-sdk-show-settings:hover{
+  color: #fff;
+  opacity: .7;
+}
+
+
+@media screen and (max-width: 768px) {
+.ot-sdk-show-settings {
+  display: block;
+  width: 42%;
+  background: #000;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  padding:3px 5px;
+  font-size:12px;
+}
+
+}

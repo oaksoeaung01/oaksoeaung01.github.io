@@ -1,0 +1,882 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* font */
+
+.amita-regular {
+  font-family: "Amita", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.amita-bold {
+  font-family: "Amita", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+body{
+   /* background-color: #6a6868 */
+    color:black
+}
+
+
+/* Navbar */
+
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+
+.navbar {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: 10px;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Style the navigation bar */
+.navbar {
+  width: 100%;
+  background-color: #5c5c5c;
+  overflow: auto;
+}
+
+/* Navbar links */
+.navbar a {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  color: rgb(253, 214, 179);
+}
+
+/* Current/active navbar link */
+.active {
+  background-color: #04AA6D;
+}
+
+.nav-menu :hover {
+   color: white;
+}
+
+.nav-menu ul {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 10px;
+    justify-content: right;
+}
+
+.nav-menu ul li {
+    list-style: none;
+}
+
+.nav-menu ul li a {
+    text-decoration: double;
+    color: white;
+    font-size: 30px;
+    padding: 15px;
+}
+
+/* Hottest Deals Clickable image CSS */
+
+
+
+.clickable-image {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Styling for the image */
+        .clickable-image img {
+            display: block;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Darkening effect on hover */
+        .clickable-image:hover img {
+            opacity: 0.7; /* Reduces brightness */
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+
+/* Hero Image */
+
+/* .hero-image {
+  width: 50%;
+  padding-left: 387px;
+} */
+
+/* Merry Christmas */
+
+.christmas-container {
+    position: relative;
+    width: 100%;
+    height: 1000px;
+    background-image: url(images/Strawhat_pirates_christmas.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: multiply;
+
+
+    /* for text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.christmas-text {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.christmas-text .greetings{
+  color:rgb(244, 32, 32)
+}
+
+.christmas-text .anniversary{
+  color: rgb(2, 248, 2);
+}
+
+.christmas-discount {
+    margin: 20px 0;
+}
+
+/* Discount CSS */
+
+.PO-items {
+  margin-left: 25px;
+}
+
+.PO-grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 95%;
+  padding: 20px;
+  margin-left: 10px;
+}
+
+.PO-menu {
+  position: relative; /* Allows absolute positioning for the price box */
+  overflow: hidden; /* Ensures content stays within box boundaries */
+  border-radius: 8px;
+}
+
+.PO-item-image {
+  width: 100%; /* Make image fill the box */
+  height:500px; 
+  object-fit: cover; /* Prevents image distortion */
+  border-radius: 8px;
+}
+
+.PO-menu {
+  padding: 10px;
+}
+
+.PO-menu .PO-item-brand {
+  font-size: 15px;
+    color: black;
+    font-weight: bold;
+    margin-top: 8px;
+  
+}
+
+.PO-menu .PO-item-name {
+  font-size: 15px;
+    color: black;
+    font-weight: bold;
+    margin-top: 10px;
+  
+}
+
+.PO-menu .PO-item-price {
+  font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+   
+}
+
+.PO-button{
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "McLaren" , sans-serif;
+  color: black;
+  background-color:white;
+  margin-left: 140px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.PO-button:hover {
+  color:  rgb(255, 184, 121);
+}
+
+ .strikethrough {
+    text-decoration: line-through;
+    color: black;
+}
+
+.pre-discount {
+  font-size: small;
+  
+}
+
+
+/* Action Figures */
+.action-figures {
+  text-align: left;
+  font-size: 32px;
+  color: #6a6868;
+  padding-left: 25px;
+}
+
+.container {
+  width: 700px;
+  height: 450px;
+  margin: auto;
+  margin-top: 60px;
+ overflow: hidden;
+}
+
+.container .slider {
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  top: 0;
+  animation: animate 10s linear infinite;
+}
+
+.container .slider img{
+  width: 20%;
+  float: left;
+}
+
+@keyframes animate{
+  0%,100% {left: 0}
+  20% {left: -0%}
+  25% {left: -100%}
+  45% {left: -100%}
+  50% {left: -200%}
+  70% {left: -200%}
+  75% {left: -300%}
+  95% {left: -300%}  
+}
+
+/* Hot Toys CSS */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-rows: repeat(2, auto); /* 2 rows */
+  gap: 20px; /* Space between grid items */
+  padding: 20px;
+}
+
+.menu {
+  position: relative; /* Allows absolute positioning for the price box */
+  overflow: hidden; /* Ensures content stays within box boundaries */
+  border-radius: 8px;
+}
+
+.item-image {
+  width: 60%; /* Make image fill the box */
+  height: auto; /* Adjust height to fit the box */
+  object-fit: cover; /* Prevents image distortion */
+  border-radius: 8px;
+  margin-left: 100px;
+}
+
+.menu {
+  padding: 10px;
+}
+
+.menu .item-brand {
+  font-size: 15px;
+    color: black;
+    font-weight: bold;
+    margin-top: 8px;
+    margin-left: 100px;
+}
+
+.menu .item-name {
+  font-size: 15px;
+    color: black;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 100px;
+}
+
+.menu .item-price {
+  font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+    margin-left: 100px;
+}
+
+.button{
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "McLaren" , sans-serif;
+  color: black;
+  background-color:white;
+  margin-left: 225px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  color:  rgb(255, 184, 121);
+}
+
+/* statues CSS */
+
+.statues {
+  margin-left: 25px;
+}
+
+.statues-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-rows: repeat(2, auto); /*3 rows */
+  gap: 20px; /* Space between grid items */
+  padding: 20px;
+}
+
+.statues-menu {
+  position: relative; /* Allows absolute positioning for the price box */
+  overflow: hidden; /* Ensures content stays within box boundaries */
+  border-radius: 8px;
+}
+
+.statues-image {
+  width: 85%; /* Make image fill the box */
+  height: 400px; 
+  object-fit: cover; /* Prevents image distortion */
+  border-radius: 8px;
+  margin-left: 100px;
+}
+
+.statues-menu {
+  padding: 10px;
+}
+
+.statues-menu .statues-brand {
+  font-size: 15px;
+    color: black;
+    font-weight: bold;
+    margin-top: 8px;
+    margin-left: 100px;
+}
+
+.statues-menu .statues-name {
+  font-size: 15px;
+    color: black;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 100px;
+}
+
+.statues-menu .statues-price {
+  font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+    margin-left: 100px;
+}
+
+.statues-button{
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "McLaren" , sans-serif;
+  color: black;
+  background-color:white;
+  margin-left: 280px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.statues-button:hover {
+  color:  rgb(255, 184, 121);
+}
+
+/* Hottest Deals of 2024 */
+
+.hottest-deals {
+  margin-left: 25px;
+}
+
+.HD-grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 95%;
+  padding: 20px;
+  margin-left: 10px;
+}
+
+.HD-menu {
+  position: relative; /* Allows absolute positioning for the price box */
+  overflow: hidden; /* Ensures content stays within box boundaries */
+  border-radius: 8px;
+}
+
+.HD-item-image {
+  width: 100%; /* Make image fill the box */
+  height:500px; 
+  object-fit: cover; /* Prevents image distortion */
+  border-radius: 8px;
+}
+
+.HD-menu {
+  padding: 10px;
+}
+
+.HD-menu .HD-item-brand {
+  font-size: 15px;
+    color: black;
+    font-weight: bold;
+    margin-top: 8px;
+    margin-left: 5px;
+}
+
+.HD-menu .HD-item-name {
+  font-size: 15px;
+    color: black;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.HD-menu .HD-item-price {
+  font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+    margin-left: 5px;
+}
+
+.HD-button{
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "McLaren" , sans-serif;
+  color: black;
+  background-color:white;
+  margin-left: 140px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.HD-button:hover {
+  color:  rgb(255, 184, 121);
+}
+
+/* Tokusatsu CSS */
+
+.Toku {
+  margin-left: 25px;
+}
+
+.toku-grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 3 columns */
+  grid-template-rows: repeat(3, auto); /*3 rows */
+  gap: 20px; /* Space between grid items */
+  padding: 20px;
+}
+
+.toku-menu {
+  position: relative; /* Allows absolute positioning for the price box */
+  overflow: hidden; /* Ensures content stays within box boundaries */
+  border-radius: 8px;
+}
+
+.toku-image {
+  width: 75%; /* Make image fill the box */
+  height: 350px; 
+  object-fit: cover; /* Prevents image distortion */
+  border-radius: 8px;
+  margin-left: 70px;
+}
+
+.toku-menu {
+  padding: 10px;
+}
+
+.toku-menu .toku-brand {
+  font-size: 15px;
+    color: black;
+    font-weight: bold;
+    margin-top: 8px;
+    margin-left: 70px;
+}
+
+.toku-menu .toku-name {
+  font-size: 15px;
+    color: black;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 70px;
+}
+
+.toku-menu .toku-price {
+  font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+    margin-left: 70px;
+}
+
+.toku-button{
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "McLaren" , sans-serif;
+  color: black;
+  background-color:white;
+  margin-left: 170px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.toku-button:hover {
+  color:  rgb(255, 184, 121);
+}
+
+/* Nendoroid */
+
+.Nendo {
+  margin-left: 25px;
+}
+
+.nendo-grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 3 columns */
+  grid-template-rows: repeat(4, auto); /*3 rows */
+  gap: 20px; /* Space between grid items */
+  padding: 20px;
+}
+
+.nendo-menu {
+  position: relative; /* Allows absolute positioning for the price box */
+  overflow: hidden; /* Ensures content stays within box boundaries */
+  border-radius: 8px;
+}
+
+.nendo-image {
+  width: 75%; /* Make image fill the box */
+  height: 350px; 
+  object-fit: cover; /* Prevents image distortion */
+  border-radius: 8px;
+  margin-left: 60px;
+}
+
+.nendo-menu {
+  padding: 10px;
+}
+
+.nendo-menu .nendo-brand {
+  font-size: 15px;
+    color: black;
+    font-weight: bold;
+    margin-top: 8px;
+    margin-left: 60px;
+}
+
+.nendo-menu .nendo-name {
+  font-size: 15px;
+    color: black;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 60px;
+}
+
+.nendo-menu .nendo-price {
+  font-size: 18px;
+    font-weight: bold;
+    padding-top: 10px;
+    margin-left:60px;
+}
+
+.nendo-button{
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "McLaren" , sans-serif;
+  color: black;
+  background-color:white;
+  margin-left: 165px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.nendo-button:hover {
+  color:  rgb(255, 184, 121);
+}
+
+/* 4 Brand Logos in row CSS */
+
+.OBWC {
+  margin-top: 20px;
+  margin-left: 25px;
+}
+
+
+.brands-row {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap; /* Wraps logos to a new row if screen size is smaller */
+}
+
+.brand-logo img {
+   padding-top: 75px;
+    max-width: 250px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.brand-logo img:hover {
+    transform: scale(1.1); /* Adds hover effect */
+}
+
+
+/* Category Title */
+
+.categories {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.Categories {
+  margin-left: 25px;
+}
+
+/* Category Description */
+
+.description {
+  font-size: 20px;
+  margin-left: 25px;
+}
+
+/* Category Superhero */
+
+.superheroes-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 80%;
+  padding: 20px;
+  margin-left: 125px;
+}
+
+.superheroes-menu {
+  position: relative; 
+  overflow: hidden; 
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.superheroes-item-image {
+  width: 100%; 
+  height:500px; 
+  object-fit: cover; 
+  border-radius: 8px;
+}
+
+/* Category Tokusatsu */
+
+.tokusatsu-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 80%;
+  padding: 20px;
+  margin-left: 125px;
+}
+
+.tokusatsu-menu {
+  position: relative; 
+  overflow: hidden; 
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.tokusatsu-item-image {
+  width: 100%; 
+  height:500px; 
+  object-fit: cover; 
+  border-radius: 8px;
+}
+
+/*   Category FZ Statues */
+
+.FZstatues-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 80%;
+  padding: 20px;
+  margin-left: 125px;
+}
+
+.FZstatues-menu {
+  position: relative; 
+  overflow: hidden; 
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.FZstatues-item-image {
+  width: 100%; 
+  height:500px; 
+  object-fit: cover; 
+  border-radius: 8px;
+}
+
+
+/* Category Chibi Figures */
+
+.chibi-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 80%;
+  padding: 20px;
+  margin-left: 125px;
+  margin-bottom: 75px;
+}
+
+.chibi-menu {
+  position: relative; 
+  overflow: hidden; 
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.chibi-item-image {
+  width: 100%; 
+  height:500px; 
+  object-fit: cover; 
+  border-radius: 8px;
+}
+
+/* Contact Us */
+
+.contact-us h1{
+  font-size: 3em;
+  color: black;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin: 100px 70px;
+}
+
+.info {
+  display: flex;
+  padding: 20px 0;
+}
+
+.contact-icon {
+  position: relative;
+  background-color: white;
+  width: 44px;
+  height: 44px;
+  color: gray;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 50px;
+  margin-right: 20px;
+}
+
+.contact-btn {
+   background-color: black; 
+            color: white; 
+            border: none; 
+            padding: 5px 10px;
+            font-size: 25px; 
+            border-radius: 4px;
+            cursor: pointer; 
+            transition: background-color 0.3s;
+}
+
+.contact-btn:hover {
+            background-color: #45a049; /* Slightly darker green */
+        }
+
+/* Contact Form */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: white;
+}
+
+/* Footer */
+
+footer {
+  background-color: #333; /* Dark background for footer */
+  color:white; /* White text */
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Space between items */
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.social-icon:hover {
+  transform: scale(1.2); /* Slight zoom on hover */
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

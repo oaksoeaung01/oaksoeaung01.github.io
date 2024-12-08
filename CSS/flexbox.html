@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*  
+        flexbox - modern layout system
+        */
+        .flex-container {
+            display: flex;
+            /* 
+                - nowrap     -> default screen ထဲမှာ မဆန့်ဆန့်အောင်ပြပေး
+                - wrap       -> screen နဲ့မဆန့်တော့ရင် အောက်ဆင်းပြီးပြပေး
+                - wrap-reverse->wrap အတိုင်းပဲ ပြောင်းပြန်စီပေး
+            */
+            flex-wrap: wrap;
+
+            /* 
+                flex-direction
+                - row -> ဘယ်ကနေညာကိုစီ
+                - row-reverse-> ညာကနေဘယ်ကိုစီ
+                - column     -> အပေါ်ကနေအောက်ကိုစီ
+                - column-reverse-> column ကိုပြောင်းပြန် စီပေး
+            */
+            flex-direction: row;
+
+            /* 
+                justify-content
+                - flex-start -> ဘယ်ညီစီ
+                - flex-end   -> ညာညီစီ
+                - center     -> အလယ်ညီစီ
+                - space-between -> flex-item တွေကို flex-container အတွင်း ဘယ်က‌နေ ညာအထိ အပြည့်ယူ ကြားထဲမှာ space အတွက်ညီညီမျှမျှ ထားပေး
+            */
+            justify-content: space-between;
+
+            background-color: red;
+        }
+
+        .flex-container .flex-item {
+            background-color: white;
+            width: 150px;
+            margin: 50px;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">
+            <h3>Title 1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi nihil ipsum praesentium reiciendis laborum perspiciatis fugiat veritatis. Recusandae, ipsum eum neque aperiam eveniet dolores voluptatibus! Explicabo voluptatem, porro quae modi quis nisi. Magni corrupti minima rem officia ad, est eum perferendis, vitae, eos ipsam hic illum asperiores adipisci nostrum unde!</p>
+        </div>
+        <div class="flex-item">
+            <h3>Title 2</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem eius laborum vero accusantium eligendi totam suscipit et temporibus, sapiente animi harum id culpa enim aliquam optio voluptatem cum quae non. Consequatur vero officiis assumenda voluptas consequuntur laboriosam iusto. Quod, veritatis recusandae assumenda est consequatur laudantium delectus sint tempore culpa corporis.</p>
+        </div>
+        <div class="flex-item">
+            <h3>Title 3</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem eius laborum vero accusantium eligendi totam suscipit et temporibus, sapiente animi harum id culpa enim aliquam optio voluptatem cum quae non. Consequatur vero officiis assumenda voluptas consequuntur laboriosam iusto. Quod, veritatis recusandae assumenda est consequatur laudantium delectus sint tempore culpa corporis.</p>
+        </div>
+        <div class="flex-item">
+            <h3>Title 4</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem eius laborum vero accusantium eligendi totam suscipit et temporibus, sapiente animi harum id culpa enim aliquam optio voluptatem cum quae non. Consequatur vero officiis assumenda voluptas consequuntur laboriosam iusto. Quod, veritatis recusandae assumenda est consequatur laudantium delectus sint tempore culpa corporis.</p>
+        </div>
+        <div class="flex-item">
+            <h3>Title 5</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem eius laborum vero accusantium eligendi totam suscipit et temporibus, sapiente animi harum id culpa enim aliquam optio voluptatem cum quae non. Consequatur vero officiis assumenda voluptas consequuntur laboriosam iusto. Quod, veritatis recusandae assumenda est consequatur laudantium delectus sint tempore culpa corporis.</p>
+        </div>
+        <div class="flex-item">
+            <h3>Title 6</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem eius laborum vero accusantium eligendi totam suscipit et temporibus, sapiente animi harum id culpa enim aliquam optio voluptatem cum quae non. Consequatur vero officiis assumenda voluptas consequuntur laboriosam iusto. Quod, veritatis recusandae assumenda est consequatur laudantium delectus sint tempore culpa corporis.</p>
+        </div>
+        <div class="flex-item">
+            <h3>Title 7</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem eius laborum vero accusantium eligendi totam suscipit et temporibus, sapiente animi harum id culpa enim aliquam optio voluptatem cum quae non. Consequatur vero officiis assumenda voluptas consequuntur laboriosam iusto. Quod, veritatis recusandae assumenda est consequatur laudantium delectus sint tempore culpa corporis.</p>
+        </div>
+    </div>
+</body>
+</html>
